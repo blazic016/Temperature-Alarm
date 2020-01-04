@@ -1,0 +1,6 @@
+https://circuitdigest.com/microcontroller-projects/digital-thermometer-using-pic16f877a-lm35-temperature-sensor/
+http://www.circuitstoday.com/using-adc-analog-digital-converter-avr
+https://embedds.com/sensing-temperature-using-avr/
+http://maxembedded.com/2011/06/the-adc-of-the-avr/
+http://extremeelectronics.co.in/avr-tutorials/4x3-matrix-keypad-interface-avr-tutorial/
+https://electrosome.com/interfacing-lcd-atmega32-microcontroller-atmel-studio/

@@ -1,0 +1,5 @@
+*.log
+/History/*
+*.workspace
+*.xml
+*.pdsbak
