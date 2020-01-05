@@ -3,3 +3,6 @@
 *.workspace
 *.xml
 *.pdsbak
+/__Previews/*
+/Project Logs for Altium-Temp-Alarm/*
+Altium-Temp-Alarm.PrjPCBStructure
