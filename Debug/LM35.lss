@@ -3,31 +3,31 @@ LM35.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00000d1e  00000000  00000000  00000094  2**1
+  0 .text         00000d62  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000010  00800060  00000d1e  00000db2  2**0
+  1 .data         00000010  00800060  00000d62  00000df6  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          00000006  00800070  00800070  00000dc2  2**0
+  2 .bss          0000000a  00800070  00800070  00000e06  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  00000dc2  2**0
+  3 .comment      00000030  00000000  00000000  00000e06  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000df4  2**2
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000e38  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 00000098  00000000  00000000  00000e30  2**0
+  5 .debug_aranges 00000098  00000000  00000000  00000e74  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   0000153f  00000000  00000000  00000ec8  2**0
+  6 .debug_info   00001563  00000000  00000000  00000f0c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 0000071b  00000000  00000000  00002407  2**0
+  7 .debug_abbrev 0000071b  00000000  00000000  0000246f  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00000f32  00000000  00000000  00002b22  2**0
+  8 .debug_line   00000f37  00000000  00000000  00002b8a  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00000168  00000000  00000000  00003a54  2**2
+  9 .debug_frame  00000168  00000000  00000000  00003ac4  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00000414  00000000  00000000  00003bbc  2**0
+ 10 .debug_str    00000464  00000000  00000000  00003c2c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00000c89  00000000  00000000  00003fd0  2**0
+ 11 .debug_loc    00000c89  00000000  00000000  00004090  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000088  00000000  00000000  00004c59  2**0
+ 12 .debug_ranges 00000088  00000000  00000000  00004d19  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -67,7 +67,7 @@ Disassembly of section .text:
   60:	10 e0       	ldi	r17, 0x00	; 0
   62:	a0 e6       	ldi	r26, 0x60	; 96
   64:	b0 e0       	ldi	r27, 0x00	; 0
-  66:	ee e1       	ldi	r30, 0x1E	; 30
+  66:	e2 e6       	ldi	r30, 0x62	; 98
   68:	fd e0       	ldi	r31, 0x0D	; 13
   6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
   6c:	05 90       	lpm	r0, Z+
@@ -86,11 +86,11 @@ Disassembly of section .text:
   7e:	1d 92       	st	X+, r1
 
 00000080 <.do_clear_bss_start>:
-  80:	a6 37       	cpi	r26, 0x76	; 118
+  80:	aa 37       	cpi	r26, 0x7A	; 122
   82:	b2 07       	cpc	r27, r18
   84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
   86:	0e 94 83 05 	call	0xb06	; 0xb06 <main>
-  8a:	0c 94 8d 06 	jmp	0xd1a	; 0xd1a <_exit>
+  8a:	0c 94 af 06 	jmp	0xd5e	; 0xd5e <_exit>
 
 0000008e <__bad_interrupt>:
   8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -1327,13 +1327,13 @@ void monitoring(int sen1, int sen2, int alarm_1, int alarm_2) {
 	extern char *__itoa_ncheck (int, char *, unsigned char);
 	return __itoa_ncheck (__val, __s, __radix);
  a2c:	4a e0       	ldi	r20, 0x0A	; 10
- a2e:	64 e7       	ldi	r22, 0x74	; 116
+ a2e:	66 e7       	ldi	r22, 0x76	; 118
  a30:	70 e0       	ldi	r23, 0x00	; 0
  a32:	c6 01       	movw	r24, r12
- a34:	0e 94 58 06 	call	0xcb0	; 0xcb0 <__itoa_ncheck>
+ a34:	0e 94 7a 06 	call	0xcf4	; 0xcf4 <__itoa_ncheck>
 	itoa(sen1,KARAKTER,10);
 	Lcd4_Write_String(KARAKTER);
- a38:	84 e7       	ldi	r24, 0x74	; 116
+ a38:	86 e7       	ldi	r24, 0x76	; 118
  a3a:	90 e0       	ldi	r25, 0x00	; 0
  a3c:	0e 94 ef 04 	call	0x9de	; 0x9de <Lcd4_Write_String>
 
@@ -1350,13 +1350,13 @@ void monitoring(int sen1, int sen2, int alarm_1, int alarm_2) {
  a52:	82 e0       	ldi	r24, 0x02	; 2
  a54:	0e 94 5b 04 	call	0x8b6	; 0x8b6 <Lcd4_Set_Cursor>
  a58:	4a e0       	ldi	r20, 0x0A	; 10
- a5a:	64 e7       	ldi	r22, 0x74	; 116
+ a5a:	66 e7       	ldi	r22, 0x76	; 118
  a5c:	70 e0       	ldi	r23, 0x00	; 0
  a5e:	c7 01       	movw	r24, r14
- a60:	0e 94 58 06 	call	0xcb0	; 0xcb0 <__itoa_ncheck>
+ a60:	0e 94 7a 06 	call	0xcf4	; 0xcf4 <__itoa_ncheck>
 	itoa(sen2,KARAKTER,10);
 	Lcd4_Write_String(KARAKTER);
- a64:	84 e7       	ldi	r24, 0x74	; 116
+ a64:	86 e7       	ldi	r24, 0x76	; 118
  a66:	90 e0       	ldi	r25, 0x00	; 0
  a68:	0e 94 ef 04 	call	0x9de	; 0x9de <Lcd4_Write_String>
 	
@@ -1365,13 +1365,13 @@ void monitoring(int sen1, int sen2, int alarm_1, int alarm_2) {
  a6e:	81 e0       	ldi	r24, 0x01	; 1
  a70:	0e 94 5b 04 	call	0x8b6	; 0x8b6 <Lcd4_Set_Cursor>
  a74:	4a e0       	ldi	r20, 0x0A	; 10
- a76:	64 e7       	ldi	r22, 0x74	; 116
+ a76:	66 e7       	ldi	r22, 0x76	; 118
  a78:	70 e0       	ldi	r23, 0x00	; 0
  a7a:	c8 01       	movw	r24, r16
- a7c:	0e 94 58 06 	call	0xcb0	; 0xcb0 <__itoa_ncheck>
+ a7c:	0e 94 7a 06 	call	0xcf4	; 0xcf4 <__itoa_ncheck>
 	itoa(alarm_1,KARAKTER,10);
 	Lcd4_Write_String(KARAKTER);
- a80:	84 e7       	ldi	r24, 0x74	; 116
+ a80:	86 e7       	ldi	r24, 0x76	; 118
  a82:	90 e0       	ldi	r25, 0x00	; 0
  a84:	0e 94 ef 04 	call	0x9de	; 0x9de <Lcd4_Write_String>
 
@@ -1380,13 +1380,13 @@ void monitoring(int sen1, int sen2, int alarm_1, int alarm_2) {
  a8a:	82 e0       	ldi	r24, 0x02	; 2
  a8c:	0e 94 5b 04 	call	0x8b6	; 0x8b6 <Lcd4_Set_Cursor>
  a90:	4a e0       	ldi	r20, 0x0A	; 10
- a92:	64 e7       	ldi	r22, 0x74	; 116
+ a92:	66 e7       	ldi	r22, 0x76	; 118
  a94:	70 e0       	ldi	r23, 0x00	; 0
  a96:	ce 01       	movw	r24, r28
- a98:	0e 94 58 06 	call	0xcb0	; 0xcb0 <__itoa_ncheck>
+ a98:	0e 94 7a 06 	call	0xcf4	; 0xcf4 <__itoa_ncheck>
 	itoa(alarm_2,KARAKTER,10);
 	Lcd4_Write_String(KARAKTER);
- a9c:	84 e7       	ldi	r24, 0x74	; 116
+ a9c:	86 e7       	ldi	r24, 0x76	; 118
  a9e:	90 e0       	ldi	r25, 0x00	; 0
  aa0:	0e 94 ef 04 	call	0x9de	; 0x9de <Lcd4_Write_String>
 }
@@ -1562,188 +1562,224 @@ int getSenzor2() {
 
 		
 		//Sensor State
-		temp1 = getSenzor1();
+		trenutna_temp1 = getSenzor1();
  baa:	0e 94 5b 05 	call	0xab6	; 0xab6 <getSenzor1>
- bae:	90 93 73 00 	sts	0x0073, r25	; 0x800073 <temp1+0x1>
- bb2:	80 93 72 00 	sts	0x0072, r24	; 0x800072 <temp1>
-		//temp1 = 20;
-		if (temp1 >= alarm_1) {pinChange(LED1,1);} else {pinChange(LED1,0);}
- bb6:	20 91 62 00 	lds	r18, 0x0062	; 0x800062 <alarm_1>
- bba:	30 91 63 00 	lds	r19, 0x0063	; 0x800063 <alarm_1+0x1>
- bbe:	82 17       	cp	r24, r18
- bc0:	93 07       	cpc	r25, r19
- bc2:	3c f0       	brlt	.+14     	; 0xbd2 <main+0xcc>
- bc4:	61 e0       	ldi	r22, 0x01	; 1
- bc6:	70 e0       	ldi	r23, 0x00	; 0
- bc8:	8f e1       	ldi	r24, 0x1F	; 31
- bca:	90 e0       	ldi	r25, 0x00	; 0
- bcc:	0e 94 49 00 	call	0x92	; 0x92 <pinChange>
- bd0:	06 c0       	rjmp	.+12     	; 0xbde <main+0xd8>
- bd2:	60 e0       	ldi	r22, 0x00	; 0
+ bae:	90 93 79 00 	sts	0x0079, r25	; 0x800079 <trenutna_temp1+0x1>
+ bb2:	80 93 78 00 	sts	0x0078, r24	; 0x800078 <trenutna_temp1>
+		
+		d_prag1 = g_prag1 - 2;
+ bb6:	20 91 62 00 	lds	r18, 0x0062	; 0x800062 <g_prag1>
+ bba:	30 91 63 00 	lds	r19, 0x0063	; 0x800063 <g_prag1+0x1>
+ bbe:	a9 01       	movw	r20, r18
+ bc0:	42 50       	subi	r20, 0x02	; 2
+ bc2:	51 09       	sbc	r21, r1
+ bc4:	50 93 73 00 	sts	0x0073, r21	; 0x800073 <d_prag1+0x1>
+ bc8:	40 93 72 00 	sts	0x0072, r20	; 0x800072 <d_prag1>
+		
+		if (trenutna_temp1 >= g_prag1)
+ bcc:	82 17       	cp	r24, r18
+ bce:	93 07       	cpc	r25, r19
+ bd0:	34 f0       	brlt	.+12     	; 0xbde <main+0xd8>
+			pinChange(LED1,1);		//sijas
+ bd2:	61 e0       	ldi	r22, 0x01	; 1
  bd4:	70 e0       	ldi	r23, 0x00	; 0
  bd6:	8f e1       	ldi	r24, 0x1F	; 31
  bd8:	90 e0       	ldi	r25, 0x00	; 0
  bda:	0e 94 49 00 	call	0x92	; 0x92 <pinChange>
-		temp2 = getSenzor2();
- bde:	0e 94 6f 05 	call	0xade	; 0xade <getSenzor2>
- be2:	90 93 71 00 	sts	0x0071, r25	; 0x800071 <__data_end+0x1>
- be6:	80 93 70 00 	sts	0x0070, r24	; 0x800070 <__data_end>
-		//temp2 = 20;
-		if (temp2 >= alarm_2) {pinChange(LED2,1);} else {pinChange(LED2,0);}
- bea:	20 91 60 00 	lds	r18, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
- bee:	30 91 61 00 	lds	r19, 0x0061	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
- bf2:	82 17       	cp	r24, r18
- bf4:	93 07       	cpc	r25, r19
- bf6:	3c f0       	brlt	.+14     	; 0xc06 <main+0x100>
- bf8:	61 e0       	ldi	r22, 0x01	; 1
- bfa:	70 e0       	ldi	r23, 0x00	; 0
- bfc:	80 e2       	ldi	r24, 0x20	; 32
- bfe:	90 e0       	ldi	r25, 0x00	; 0
- c00:	0e 94 49 00 	call	0x92	; 0x92 <pinChange>
- c04:	06 c0       	rjmp	.+12     	; 0xc12 <main+0x10c>
- c06:	60 e0       	ldi	r22, 0x00	; 0
- c08:	70 e0       	ldi	r23, 0x00	; 0
- c0a:	80 e2       	ldi	r24, 0x20	; 32
- c0c:	90 e0       	ldi	r25, 0x00	; 0
- c0e:	0e 94 49 00 	call	0x92	; 0x92 <pinChange>
+		
+		if (trenutna_temp1 <= d_prag1)
+ bde:	20 91 78 00 	lds	r18, 0x0078	; 0x800078 <trenutna_temp1>
+ be2:	30 91 79 00 	lds	r19, 0x0079	; 0x800079 <trenutna_temp1+0x1>
+ be6:	80 91 72 00 	lds	r24, 0x0072	; 0x800072 <d_prag1>
+ bea:	90 91 73 00 	lds	r25, 0x0073	; 0x800073 <d_prag1+0x1>
+ bee:	82 17       	cp	r24, r18
+ bf0:	93 07       	cpc	r25, r19
+ bf2:	34 f0       	brlt	.+12     	; 0xc00 <main+0xfa>
+			pinChange(LED1,0);		//ne sijas
+ bf4:	60 e0       	ldi	r22, 0x00	; 0
+ bf6:	70 e0       	ldi	r23, 0x00	; 0
+ bf8:	8f e1       	ldi	r24, 0x1F	; 31
+ bfa:	90 e0       	ldi	r25, 0x00	; 0
+ bfc:	0e 94 49 00 	call	0x92	; 0x92 <pinChange>
+				
+				
+		trenutna_temp2 = getSenzor2();
+ c00:	0e 94 6f 05 	call	0xade	; 0xade <getSenzor2>
+ c04:	90 93 75 00 	sts	0x0075, r25	; 0x800075 <trenutna_temp2+0x1>
+ c08:	80 93 74 00 	sts	0x0074, r24	; 0x800074 <trenutna_temp2>
+		d_prag2 = g_prag2 - 2; 
+ c0c:	20 91 60 00 	lds	r18, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ c10:	30 91 61 00 	lds	r19, 0x0061	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+ c14:	a9 01       	movw	r20, r18
+ c16:	42 50       	subi	r20, 0x02	; 2
+ c18:	51 09       	sbc	r21, r1
+ c1a:	50 93 71 00 	sts	0x0071, r21	; 0x800071 <__data_end+0x1>
+ c1e:	40 93 70 00 	sts	0x0070, r20	; 0x800070 <__data_end>
+		
+		if (trenutna_temp2 >= g_prag2)
+ c22:	82 17       	cp	r24, r18
+ c24:	93 07       	cpc	r25, r19
+ c26:	34 f0       	brlt	.+12     	; 0xc34 <main+0x12e>
+			pinChange(LED2,1);		//sijas
+ c28:	61 e0       	ldi	r22, 0x01	; 1
+ c2a:	70 e0       	ldi	r23, 0x00	; 0
+ c2c:	80 e2       	ldi	r24, 0x20	; 32
+ c2e:	90 e0       	ldi	r25, 0x00	; 0
+ c30:	0e 94 49 00 	call	0x92	; 0x92 <pinChange>
+		
+		if (trenutna_temp2 <= d_prag2)
+ c34:	20 91 74 00 	lds	r18, 0x0074	; 0x800074 <trenutna_temp2>
+ c38:	30 91 75 00 	lds	r19, 0x0075	; 0x800075 <trenutna_temp2+0x1>
+ c3c:	80 91 70 00 	lds	r24, 0x0070	; 0x800070 <__data_end>
+ c40:	90 91 71 00 	lds	r25, 0x0071	; 0x800071 <__data_end+0x1>
+ c44:	82 17       	cp	r24, r18
+ c46:	93 07       	cpc	r25, r19
+ c48:	34 f0       	brlt	.+12     	; 0xc56 <main+0x150>
+			pinChange(LED2,0);		//ne sijas
+ c4a:	60 e0       	ldi	r22, 0x00	; 0
+ c4c:	70 e0       	ldi	r23, 0x00	; 0
+ c4e:	80 e2       	ldi	r24, 0x20	; 32
+ c50:	90 e0       	ldi	r25, 0x00	; 0
+ c52:	0e 94 49 00 	call	0x92	; 0x92 <pinChange>
+		
 		
 
 
 		
 		if (pinScan(BUT1) == 1) {
- c12:	84 e1       	ldi	r24, 0x14	; 20
- c14:	90 e0       	ldi	r25, 0x00	; 0
- c16:	0e 94 ce 02 	call	0x59c	; 0x59c <pinScan>
- c1a:	01 97       	sbiw	r24, 0x01	; 1
- c1c:	49 f4       	brne	.+18     	; 0xc30 <main+0x12a>
-			alarm_1--;
- c1e:	80 91 62 00 	lds	r24, 0x0062	; 0x800062 <alarm_1>
- c22:	90 91 63 00 	lds	r25, 0x0063	; 0x800063 <alarm_1+0x1>
- c26:	01 97       	sbiw	r24, 0x01	; 1
- c28:	90 93 63 00 	sts	0x0063, r25	; 0x800063 <alarm_1+0x1>
- c2c:	80 93 62 00 	sts	0x0062, r24	; 0x800062 <alarm_1>
+ c56:	84 e1       	ldi	r24, 0x14	; 20
+ c58:	90 e0       	ldi	r25, 0x00	; 0
+ c5a:	0e 94 ce 02 	call	0x59c	; 0x59c <pinScan>
+ c5e:	01 97       	sbiw	r24, 0x01	; 1
+ c60:	49 f4       	brne	.+18     	; 0xc74 <main+0x16e>
+			g_prag1--;
+ c62:	80 91 62 00 	lds	r24, 0x0062	; 0x800062 <g_prag1>
+ c66:	90 91 63 00 	lds	r25, 0x0063	; 0x800063 <g_prag1+0x1>
+ c6a:	01 97       	sbiw	r24, 0x01	; 1
+ c6c:	90 93 63 00 	sts	0x0063, r25	; 0x800063 <g_prag1+0x1>
+ c70:	80 93 62 00 	sts	0x0062, r24	; 0x800062 <g_prag1>
 			//while (pinScan(BUT1) == 1)  {}
 		}
 		if (pinScan(BUT2) == 1) {
- c30:	85 e1       	ldi	r24, 0x15	; 21
- c32:	90 e0       	ldi	r25, 0x00	; 0
- c34:	0e 94 ce 02 	call	0x59c	; 0x59c <pinScan>
- c38:	01 97       	sbiw	r24, 0x01	; 1
- c3a:	49 f4       	brne	.+18     	; 0xc4e <main+0x148>
-			alarm_1++;
- c3c:	80 91 62 00 	lds	r24, 0x0062	; 0x800062 <alarm_1>
- c40:	90 91 63 00 	lds	r25, 0x0063	; 0x800063 <alarm_1+0x1>
- c44:	01 96       	adiw	r24, 0x01	; 1
- c46:	90 93 63 00 	sts	0x0063, r25	; 0x800063 <alarm_1+0x1>
- c4a:	80 93 62 00 	sts	0x0062, r24	; 0x800062 <alarm_1>
+ c74:	85 e1       	ldi	r24, 0x15	; 21
+ c76:	90 e0       	ldi	r25, 0x00	; 0
+ c78:	0e 94 ce 02 	call	0x59c	; 0x59c <pinScan>
+ c7c:	01 97       	sbiw	r24, 0x01	; 1
+ c7e:	49 f4       	brne	.+18     	; 0xc92 <main+0x18c>
+			g_prag1++;
+ c80:	80 91 62 00 	lds	r24, 0x0062	; 0x800062 <g_prag1>
+ c84:	90 91 63 00 	lds	r25, 0x0063	; 0x800063 <g_prag1+0x1>
+ c88:	01 96       	adiw	r24, 0x01	; 1
+ c8a:	90 93 63 00 	sts	0x0063, r25	; 0x800063 <g_prag1+0x1>
+ c8e:	80 93 62 00 	sts	0x0062, r24	; 0x800062 <g_prag1>
 			//while (pinScan(BUT2) == 1)  {}
 		}
 		if (pinScan(BUT3) == 1) {
- c4e:	8a e0       	ldi	r24, 0x0A	; 10
- c50:	90 e0       	ldi	r25, 0x00	; 0
- c52:	0e 94 ce 02 	call	0x59c	; 0x59c <pinScan>
- c56:	01 97       	sbiw	r24, 0x01	; 1
- c58:	49 f4       	brne	.+18     	; 0xc6c <main+0x166>
-			alarm_2--;
- c5a:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
- c5e:	90 91 61 00 	lds	r25, 0x0061	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
- c62:	01 97       	sbiw	r24, 0x01	; 1
- c64:	90 93 61 00 	sts	0x0061, r25	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
- c68:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+ c92:	8a e0       	ldi	r24, 0x0A	; 10
+ c94:	90 e0       	ldi	r25, 0x00	; 0
+ c96:	0e 94 ce 02 	call	0x59c	; 0x59c <pinScan>
+ c9a:	01 97       	sbiw	r24, 0x01	; 1
+ c9c:	49 f4       	brne	.+18     	; 0xcb0 <main+0x1aa>
+			g_prag2--;
+ c9e:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ ca2:	90 91 61 00 	lds	r25, 0x0061	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+ ca6:	01 97       	sbiw	r24, 0x01	; 1
+ ca8:	90 93 61 00 	sts	0x0061, r25	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+ cac:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
 			//while (pinScan(BUT3) == 1)  {}
 		}
 		if (pinScan(BUT4) == 1) {
- c6c:	8b e0       	ldi	r24, 0x0B	; 11
- c6e:	90 e0       	ldi	r25, 0x00	; 0
- c70:	0e 94 ce 02 	call	0x59c	; 0x59c <pinScan>
- c74:	01 97       	sbiw	r24, 0x01	; 1
- c76:	49 f4       	brne	.+18     	; 0xc8a <main+0x184>
-			alarm_2++;
- c78:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
- c7c:	90 91 61 00 	lds	r25, 0x0061	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
- c80:	01 96       	adiw	r24, 0x01	; 1
- c82:	90 93 61 00 	sts	0x0061, r25	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
- c86:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+ cb0:	8b e0       	ldi	r24, 0x0B	; 11
+ cb2:	90 e0       	ldi	r25, 0x00	; 0
+ cb4:	0e 94 ce 02 	call	0x59c	; 0x59c <pinScan>
+ cb8:	01 97       	sbiw	r24, 0x01	; 1
+ cba:	49 f4       	brne	.+18     	; 0xcce <main+0x1c8>
+			g_prag2++;
+ cbc:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ cc0:	90 91 61 00 	lds	r25, 0x0061	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+ cc4:	01 96       	adiw	r24, 0x01	; 1
+ cc6:	90 93 61 00 	sts	0x0061, r25	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+ cca:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
 			//while (pinScan(BUT4) == 1)  {}
 		}
 
 		
 		// Monitoring
-		monitoring( temp1,  temp2,  alarm_1,  alarm_2);
- c8a:	20 91 60 00 	lds	r18, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
- c8e:	30 91 61 00 	lds	r19, 0x0061	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
- c92:	40 91 62 00 	lds	r20, 0x0062	; 0x800062 <alarm_1>
- c96:	50 91 63 00 	lds	r21, 0x0063	; 0x800063 <alarm_1+0x1>
- c9a:	60 91 70 00 	lds	r22, 0x0070	; 0x800070 <__data_end>
- c9e:	70 91 71 00 	lds	r23, 0x0071	; 0x800071 <__data_end+0x1>
- ca2:	80 91 72 00 	lds	r24, 0x0072	; 0x800072 <temp1>
- ca6:	90 91 73 00 	lds	r25, 0x0073	; 0x800073 <temp1+0x1>
- caa:	0e 94 fe 04 	call	0x9fc	; 0x9fc <monitoring>
+		monitoring( trenutna_temp1,  trenutna_temp2,  g_prag1,  g_prag2);
+ cce:	20 91 60 00 	lds	r18, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ cd2:	30 91 61 00 	lds	r19, 0x0061	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+ cd6:	40 91 62 00 	lds	r20, 0x0062	; 0x800062 <g_prag1>
+ cda:	50 91 63 00 	lds	r21, 0x0063	; 0x800063 <g_prag1+0x1>
+ cde:	60 91 74 00 	lds	r22, 0x0074	; 0x800074 <trenutna_temp2>
+ ce2:	70 91 75 00 	lds	r23, 0x0075	; 0x800075 <trenutna_temp2+0x1>
+ ce6:	80 91 78 00 	lds	r24, 0x0078	; 0x800078 <trenutna_temp1>
+ cea:	90 91 79 00 	lds	r25, 0x0079	; 0x800079 <trenutna_temp1+0x1>
+ cee:	0e 94 fe 04 	call	0x9fc	; 0x9fc <monitoring>
 		
 	}
- cae:	7d cf       	rjmp	.-262    	; 0xbaa <main+0xa4>
+ cf2:	5b cf       	rjmp	.-330    	; 0xbaa <main+0xa4>
 
-00000cb0 <__itoa_ncheck>:
- cb0:	bb 27       	eor	r27, r27
- cb2:	4a 30       	cpi	r20, 0x0A	; 10
- cb4:	31 f4       	brne	.+12     	; 0xcc2 <__itoa_ncheck+0x12>
- cb6:	99 23       	and	r25, r25
- cb8:	22 f4       	brpl	.+8      	; 0xcc2 <__itoa_ncheck+0x12>
- cba:	bd e2       	ldi	r27, 0x2D	; 45
- cbc:	90 95       	com	r25
- cbe:	81 95       	neg	r24
- cc0:	9f 4f       	sbci	r25, 0xFF	; 255
- cc2:	0c 94 64 06 	jmp	0xcc8	; 0xcc8 <__utoa_common>
+00000cf4 <__itoa_ncheck>:
+ cf4:	bb 27       	eor	r27, r27
+ cf6:	4a 30       	cpi	r20, 0x0A	; 10
+ cf8:	31 f4       	brne	.+12     	; 0xd06 <__itoa_ncheck+0x12>
+ cfa:	99 23       	and	r25, r25
+ cfc:	22 f4       	brpl	.+8      	; 0xd06 <__itoa_ncheck+0x12>
+ cfe:	bd e2       	ldi	r27, 0x2D	; 45
+ d00:	90 95       	com	r25
+ d02:	81 95       	neg	r24
+ d04:	9f 4f       	sbci	r25, 0xFF	; 255
+ d06:	0c 94 86 06 	jmp	0xd0c	; 0xd0c <__utoa_common>
 
-00000cc6 <__utoa_ncheck>:
- cc6:	bb 27       	eor	r27, r27
+00000d0a <__utoa_ncheck>:
+ d0a:	bb 27       	eor	r27, r27
 
-00000cc8 <__utoa_common>:
- cc8:	fb 01       	movw	r30, r22
- cca:	55 27       	eor	r21, r21
- ccc:	aa 27       	eor	r26, r26
- cce:	88 0f       	add	r24, r24
- cd0:	99 1f       	adc	r25, r25
- cd2:	aa 1f       	adc	r26, r26
- cd4:	a4 17       	cp	r26, r20
- cd6:	10 f0       	brcs	.+4      	; 0xcdc <__utoa_common+0x14>
- cd8:	a4 1b       	sub	r26, r20
- cda:	83 95       	inc	r24
- cdc:	50 51       	subi	r21, 0x10	; 16
- cde:	b9 f7       	brne	.-18     	; 0xcce <__utoa_common+0x6>
- ce0:	a0 5d       	subi	r26, 0xD0	; 208
- ce2:	aa 33       	cpi	r26, 0x3A	; 58
- ce4:	08 f0       	brcs	.+2      	; 0xce8 <__utoa_common+0x20>
- ce6:	a9 5d       	subi	r26, 0xD9	; 217
- ce8:	a1 93       	st	Z+, r26
- cea:	00 97       	sbiw	r24, 0x00	; 0
- cec:	79 f7       	brne	.-34     	; 0xccc <__utoa_common+0x4>
- cee:	b1 11       	cpse	r27, r1
- cf0:	b1 93       	st	Z+, r27
- cf2:	11 92       	st	Z+, r1
- cf4:	cb 01       	movw	r24, r22
- cf6:	0c 94 7d 06 	jmp	0xcfa	; 0xcfa <strrev>
+00000d0c <__utoa_common>:
+ d0c:	fb 01       	movw	r30, r22
+ d0e:	55 27       	eor	r21, r21
+ d10:	aa 27       	eor	r26, r26
+ d12:	88 0f       	add	r24, r24
+ d14:	99 1f       	adc	r25, r25
+ d16:	aa 1f       	adc	r26, r26
+ d18:	a4 17       	cp	r26, r20
+ d1a:	10 f0       	brcs	.+4      	; 0xd20 <__utoa_common+0x14>
+ d1c:	a4 1b       	sub	r26, r20
+ d1e:	83 95       	inc	r24
+ d20:	50 51       	subi	r21, 0x10	; 16
+ d22:	b9 f7       	brne	.-18     	; 0xd12 <__utoa_common+0x6>
+ d24:	a0 5d       	subi	r26, 0xD0	; 208
+ d26:	aa 33       	cpi	r26, 0x3A	; 58
+ d28:	08 f0       	brcs	.+2      	; 0xd2c <__utoa_common+0x20>
+ d2a:	a9 5d       	subi	r26, 0xD9	; 217
+ d2c:	a1 93       	st	Z+, r26
+ d2e:	00 97       	sbiw	r24, 0x00	; 0
+ d30:	79 f7       	brne	.-34     	; 0xd10 <__utoa_common+0x4>
+ d32:	b1 11       	cpse	r27, r1
+ d34:	b1 93       	st	Z+, r27
+ d36:	11 92       	st	Z+, r1
+ d38:	cb 01       	movw	r24, r22
+ d3a:	0c 94 9f 06 	jmp	0xd3e	; 0xd3e <strrev>
 
-00000cfa <strrev>:
- cfa:	dc 01       	movw	r26, r24
- cfc:	fc 01       	movw	r30, r24
- cfe:	67 2f       	mov	r22, r23
- d00:	71 91       	ld	r23, Z+
- d02:	77 23       	and	r23, r23
- d04:	e1 f7       	brne	.-8      	; 0xcfe <strrev+0x4>
- d06:	32 97       	sbiw	r30, 0x02	; 2
- d08:	04 c0       	rjmp	.+8      	; 0xd12 <strrev+0x18>
- d0a:	7c 91       	ld	r23, X
- d0c:	6d 93       	st	X+, r22
- d0e:	70 83       	st	Z, r23
- d10:	62 91       	ld	r22, -Z
- d12:	ae 17       	cp	r26, r30
- d14:	bf 07       	cpc	r27, r31
- d16:	c8 f3       	brcs	.-14     	; 0xd0a <strrev+0x10>
- d18:	08 95       	ret
+00000d3e <strrev>:
+ d3e:	dc 01       	movw	r26, r24
+ d40:	fc 01       	movw	r30, r24
+ d42:	67 2f       	mov	r22, r23
+ d44:	71 91       	ld	r23, Z+
+ d46:	77 23       	and	r23, r23
+ d48:	e1 f7       	brne	.-8      	; 0xd42 <strrev+0x4>
+ d4a:	32 97       	sbiw	r30, 0x02	; 2
+ d4c:	04 c0       	rjmp	.+8      	; 0xd56 <strrev+0x18>
+ d4e:	7c 91       	ld	r23, X
+ d50:	6d 93       	st	X+, r22
+ d52:	70 83       	st	Z, r23
+ d54:	62 91       	ld	r22, -Z
+ d56:	ae 17       	cp	r26, r30
+ d58:	bf 07       	cpc	r27, r31
+ d5a:	c8 f3       	brcs	.-14     	; 0xd4e <strrev+0x10>
+ d5c:	08 95       	ret
 
-00000d1a <_exit>:
- d1a:	f8 94       	cli
+00000d5e <_exit>:
+ d5e:	f8 94       	cli
 
-00000d1c <__stop_program>:
- d1c:	ff cf       	rjmp	.-2      	; 0xd1c <__stop_program>
+00000d60 <__stop_program>:
+ d60:	ff cf       	rjmp	.-2      	; 0xd60 <__stop_program>

@@ -51,10 +51,16 @@ int getSenzor1();
 int getSenzor2();
 void monitoring(int x, int y, int x_limit, int y_limit);
 
-int temp1;
-int temp2;
-int alarm_1 = 15;
-int alarm_2 = 15;
+
+int trenutna_temp1;
+int trenutna_temp2;
+
+int g_prag1 = 30;
+int g_prag2 = 31;
+
+int d_prag1 = 0;
+int d_prag2 = 0;
+
 char KARAKTER [2];
 
 
@@ -92,36 +98,50 @@ int main(void)
 
 		
 		//Sensor State
-		temp1 = getSenzor1();
-		//temp1 = 20;
-		if (temp1 >= alarm_1) {pinChange(LED1,1);} else {pinChange(LED1,0);}
-		temp2 = getSenzor2();
-		//temp2 = 20;
-		if (temp2 >= alarm_2) {pinChange(LED2,1);} else {pinChange(LED2,0);}
+		trenutna_temp1 = getSenzor1();
+		
+		d_prag1 = g_prag1 - 2;
+		
+		if (trenutna_temp1 >= g_prag1)
+			pinChange(LED1,1);		//sijas
+		
+		if (trenutna_temp1 <= d_prag1)
+			pinChange(LED1,0);		//ne sijas
+				
+				
+		trenutna_temp2 = getSenzor2();
+		d_prag2 = g_prag2 - 2; 
+		
+		if (trenutna_temp2 >= g_prag2)
+			pinChange(LED2,1);		//sijas
+		
+		if (trenutna_temp2 <= d_prag2)
+			pinChange(LED2,0);		//ne sijas
+		
 		
 
 
 		
 		if (pinScan(BUT1) == 1) {
-			alarm_1--;
+			g_prag1--;
 			//while (pinScan(BUT1) == 1)  {}
 		}
 		if (pinScan(BUT2) == 1) {
-			alarm_1++;
+			g_prag1++;
 			//while (pinScan(BUT2) == 1)  {}
 		}
 		if (pinScan(BUT3) == 1) {
-			alarm_2--;
+			g_prag2--;
 			//while (pinScan(BUT3) == 1)  {}
 		}
 		if (pinScan(BUT4) == 1) {
-			alarm_2++;
+			g_prag2++;
 			//while (pinScan(BUT4) == 1)  {}
 		}
 
 		
 		// Monitoring
-		monitoring( temp1,  temp2,  alarm_1,  alarm_2);
+		monitoring( trenutna_temp1,  trenutna_temp2,  g_prag1,  g_prag2);
 		
 	}
 	
@@ -169,4 +189,7 @@ int getSenzor2() {
 	int ADCOut = ADCL|(ADCH<<8); // Save the ADC reading into an integer variable ADCOut. The ADCL must be read first as written here.
 	return ADCOut/4; // Calculate Temperature
 }
+
+
+
 

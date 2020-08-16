@@ -16,9 +16,9 @@ c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/..
 Allocating common symbols
 Common symbol       size              file
 
-temp2               0x2               main.o
-temp1               0x2               main.o
+trenutna_temp2      0x2               main.o
 KARAKTER            0x2               main.o
+trenutna_temp1      0x2               main.o
 
 Discarded input sections
 
@@ -214,7 +214,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0xd1e
+.text           0x00000000      0xd62
  *(.vectors)
  .vectors       0x00000000       0x54 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32a/avr5/crtatmega32a.o
                 0x00000000                __vector_default
@@ -334,23 +334,23 @@ END GROUP
  .text.getSenzor2
                 0x00000ade       0x28 main.o
                 0x00000ade                getSenzor2
- .text.main     0x00000b06      0x1aa main.o
+ .text.main     0x00000b06      0x1ee main.o
                 0x00000b06                main
  .text.avr-libc
-                0x00000cb0       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(itoa_ncheck.o)
-                0x00000cb0                __itoa_ncheck
+                0x00000cf4       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(itoa_ncheck.o)
+                0x00000cf4                __itoa_ncheck
  .text.avr-libc
-                0x00000cc6       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(utoa_ncheck.o)
-                0x00000cc6                __utoa_ncheck
-                0x00000cc8                __utoa_common
+                0x00000d0a       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(utoa_ncheck.o)
+                0x00000d0a                __utoa_ncheck
+                0x00000d0c                __utoa_common
  .text.avr-libc
-                0x00000cfa       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strrev.o)
-                0x00000cfa                strrev
-                0x00000d1a                . = ALIGN (0x2)
+                0x00000d3e       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strrev.o)
+                0x00000d3e                strrev
+                0x00000d5e                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000d1a        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
-                0x00000d1a                _exit
-                0x00000d1a                exit
+ .fini9         0x00000d5e        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+                0x00000d5e                _exit
+                0x00000d5e                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -369,18 +369,18 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000d1a        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .fini0         0x00000d5e        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000d1e                _etext = .
+                0x00000d62                _etext = .
 
-.data           0x00800060       0x10 load address 0x00000d1e
+.data           0x00800060       0x10 load address 0x00000d62
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
- .data.alarm_2  0x00800060        0x2 main.o
-                0x00800060                alarm_2
- .data.alarm_1  0x00800062        0x2 main.o
-                0x00800062                alarm_1
+ .data.g_prag2  0x00800060        0x2 main.o
+                0x00800060                g_prag2
+ .data.g_prag1  0x00800062        0x2 main.o
+                0x00800062                g_prag1
  *(.gnu.linkonce.d*)
  *(.rodata)
  *(.rodata*)
@@ -391,24 +391,28 @@ END GROUP
                 0x00800070                _edata = .
                 0x00800070                PROVIDE (__data_end, .)
 
-.bss            0x00800070        0x6
+.bss            0x00800070        0xa
                 0x00800070                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
+ .bss.d_prag2   0x00800070        0x2 main.o
+                0x00800070                d_prag2
+ .bss.d_prag1   0x00800072        0x2 main.o
+                0x00800072                d_prag1
  *(COMMON)
- COMMON         0x00800070        0x6 main.o
-                0x00800070                temp2
-                0x00800072                temp1
-                0x00800074                KARAKTER
-                0x00800076                PROVIDE (__bss_end, .)
-                0x00000d1e                __data_load_start = LOADADDR (.data)
-                0x00000d2e                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x00800074        0x6 main.o
+                0x00800074                trenutna_temp2
+                0x00800076                KARAKTER
+                0x00800078                trenutna_temp1
+                0x0080007a                PROVIDE (__bss_end, .)
+                0x00000d62                __data_load_start = LOADADDR (.data)
+                0x00000d72                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800076        0x0
+.noinit         0x0080007a        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x00800076                _end = .
+                0x0080007a                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
@@ -481,30 +485,30 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x153f
+.debug_info     0x00000000     0x1563
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x4e6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32a/avr5/crtatmega32a.o
- .debug_info    0x000004e6     0x1059 main.o
+ .debug_info    0x000004e6     0x107d main.o
 
 .debug_abbrev   0x00000000      0x71b
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x4a3 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32a/avr5/crtatmega32a.o
  .debug_abbrev  0x000004a3      0x278 main.o
 
-.debug_line     0x00000000      0xf32
+.debug_line     0x00000000      0xf37
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x115 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32a/avr5/crtatmega32a.o
- .debug_line    0x00000115      0xe1d main.o
+ .debug_line    0x00000115      0xe22 main.o
 
 .debug_frame    0x00000000      0x168
  *(.debug_frame)
  .debug_frame   0x00000000      0x168 main.o
 
-.debug_str      0x00000000      0x414
+.debug_str      0x00000000      0x464
  *(.debug_str)
  .debug_str     0x00000000      0x196 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega32a/avr5/crtatmega32a.o
- .debug_str     0x00000196      0x27e main.o
-                                0x2bc (size before relaxing)
+ .debug_str     0x00000196      0x2ce main.o
+                                0x30c (size before relaxing)
 
 .debug_loc      0x00000000      0xc89
  *(.debug_loc)
